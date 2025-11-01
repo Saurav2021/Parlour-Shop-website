@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <meta lang="en-Us">
+    <meta name="keywords" content="Beautyproducts,beauty">
+    <meta name="description" content="India's largest beauty shop , Purchase Now!!">
+    <meta name="author" content="beautyproducts.com">
+
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <!-- Start Nav Coding-->
+    <nav>
+        <h1 id="welcome">Welcome !</h1>
+        <table id="menu" align="center" cellspacing="10px">
+            <tr>
+                <td id="nav-item"><a href="Index.html">Home</a></td>
+                <td id="nav-item"><a href="products.html">Products</a></td>
+                <td id="nav-item"><a href="contact.html">Contact Us</a></td>
+                <td id="nav-item"><a href="#">Sign Up</a></td>
+                <td id="nav-item"><a href="login.html">Login</a></td>
+            </tr>
+        </table>
+    </nav>
+    <!-- End Nav Coding-->
+
+    <!-- Start Section Coding-->
+    <section id="home-section">
+        <center>
+        <div id="logo">
+            <h1 id="logo-text">B</h1>
+        </div>
+        </center>
+        <p id="domain">Beautyproducts.com</p>
+    </section>
+    <!--End Section Coding-->
+
+    <!-- Razorpay Payment Button -->
+    <center>
+        <button id="payBtn" style="margin-top: 20px; padding: 10px 20px; font-size: 16px;">Pay ₹500</button>
+    </center>
+
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        document.getElementById('payBtn').onclick = function (e) {
+            var options = {
+                "key": "YOUR_KEY_ID", // Replace with your Razorpay Test Key ID
+                "amount": "50000", // 50000 paise = ₹500
+                "currency": "INR",
+                "name": "Beautyproducts.com",
+                "description": "Test Transaction",
+                "image": "https://your-logo-url.com/logo.png", // optional
+                "handler": function (response){
+                    alert("Payment successful! ID: " + response.razorpay_payment_id);
+                },
+                "prefill": {
+                    "name": "Customer Name",
+                    "email": "customer@example.com",
+                    "contact": "9999999999"
+                },
+                "theme": {
+                    "color": "#F37254"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+
+</body>
+</html>
